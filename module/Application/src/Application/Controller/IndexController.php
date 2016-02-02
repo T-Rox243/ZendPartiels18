@@ -16,6 +16,11 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+    	$userService = $this->getServiceLocator()->get('Application\Service\UserService');
+    	$user = $userService->getByEmail('roza@roza.fr');
+
+        return new ViewModel(array(
+        	'user' => $user
+        ));
     }
 }
