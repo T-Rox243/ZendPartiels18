@@ -1,14 +1,4 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
-
-namespace Application;
-
 return array(
     'router' => array(
         'routes' => array(
@@ -17,7 +7,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Album\Controller\Album',
                         'action'     => 'index',
                     ),
                 ),
@@ -55,18 +45,13 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'abstract_factories' => array(
-            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
-            'Zend\Log\LoggerAbstractServiceFactory',
-        ),
         'factories' => array(
-            'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
-            'Application\Service\UserService' => 'Application\Service\Factory\UserServiceFactory',
+            'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
         ),
     ),
     'translator' => array(
         'locale' => 'en_US',
-        'translation_file_patterns' => array(
+        'translation_patterns' => array(
             array(
                 'type'     => 'gettext',
                 'base_dir' => __DIR__ . '/../language',
@@ -76,7 +61,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => Controller\IndexController::class
+            'Application\Controller\Index' => 'Application\Controller\IndexController'
         ),
     ),
     'view_manager' => array(
@@ -95,25 +80,4 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
-    // Placeholder for console routes
-    'console' => array(
-        'router' => array(
-            'routes' => array(
-            ),
-        ),
-    ),
-    'doctrine' => array(
-        'driver' => array(
-            __NAMESPACE__ . '_driver' => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Model')
-            ),
-            'orm_default' => array(
-                'drivers' => array(
-                    __NAMESPACE__ . '\Model' => __NAMESPACE__ . '_driver'
-                )
-            )
-        )
-    )
 );

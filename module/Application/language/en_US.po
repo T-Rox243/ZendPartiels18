@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2012-07-05 22:17-0700\n"
-"Last-Translator: Evan Coury <me@evancoury.com>\n"
+"PO-Revision-Date: 2012-07-09 10:22+0100\n"
+"Last-Translator: Rob Allen <rob@akrabat.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: ../view/layout/layout.phtml:6
 #: ../view/layout/layout.phtml:33
 msgid "Skeleton Application"
-msgstr ""
+msgstr "Tutorial"
 
 #: ../view/layout/layout.phtml:36
 msgid "Home"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: ../view/application/index/index.phtml:11
 #, php-format
-msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
+msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework webiste which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
 msgstr ""
 
 #: ../view/application/index/index.phtml:12
@@ -75,7 +75,7 @@ msgstr ""
 
 #: ../view/application/index/index.phtml:23
 #, php-format
-msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
+msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk.2 on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
 msgstr ""
 
 #: ../view/application/index/index.phtml:24

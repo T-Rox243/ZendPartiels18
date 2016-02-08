@@ -37,7 +37,7 @@ msgstr "Hacer un Fork del Zend Framework 2 en GitHub"
 msgid "Follow Development"
 msgstr "Seguir el Desarrollo"
 
-msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
+msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework webiste which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
 msgstr "El Zend Framework 2 está en pleno desarrollo. Si estás interesado en seguir el desarrollo del ZF2, existe un portal especial para el ZF2 en el sitio web oficial del Zend Framework el cual provee enlaces %sa la Wiki%s, %sal Blog de desarrollo%s, %sal issue tracker%s y mucho más. Este es un gran recurso para mantenerte al día con los últimos avances en el desarrollo!"
 
 msgid "ZF2 Development Portal"
@@ -55,8 +55,8 @@ msgstr "Explora los módulos del ZF2"
 msgid "Help &amp; Support"
 msgstr "Ayuda &amp; Soporte"
 
-msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
-msgstr "Si necesitas alguna ayuda o soporte mientras estás desarrollando con el ZF2, puedes encontrarnos via IRC: %s#zftalk en Freenode%s. Nos encantaría leer tus preguntas o cualquier feedback que puedas tener en relación a los lanzamientos de las versiones beta. También puedes subscribirte y enviar preguntas %sa la lista de correos%s"
+msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk.2 on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
+msgstr "Si necesitas alguna ayuda o soporte mientras estás desarrollando con el ZF2, puedes encontrarnos via IRC: %s#zftalk.2 en Freenode%s. Nos encantaría leer tus preguntas o cualquier feedback que puedas tener en relación a los lanzamientos de las versiones beta. También puedes subscribirte y enviar preguntas %sa la lista de correos%s"
 
 msgid "Ping us on IRC"
 msgstr "Escríbenos en el IRC"
