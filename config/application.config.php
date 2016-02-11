@@ -4,6 +4,7 @@ return array(
         'Application',
         'Album',
         'Produit',
+        'Front',
         'DoctrineModule',
         'DoctrineORMModule',
     ),
