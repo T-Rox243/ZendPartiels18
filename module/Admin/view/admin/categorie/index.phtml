@@ -1,0 +1,29 @@
+<?php 
+$title = 'Categories';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a href="<?php echo $this->url('categorie', array( 
+        'action'=>'add'));?>">Ajouter une categorie</a></p>
+
+<table class="table">
+<tr>
+    <th>Nom</th>
+    <th>Url de l'image</th>
+    <th>Description</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($categories as $categorie) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($categorie->nom);?></td>
+    <td><?php echo $this->escapeHtml($categorie->url_img);?></td>
+    <td><?php echo $this->escapeHtml($categorie->description);?></td>
+    <td>
+        <a href="<?php echo $this->url('categorie',
+            array('action'=>'edit', 'id_categ' => $categorie->id_categ));?>">Edit</a>
+        <a href="<?php echo $this->url('categorie',
+            array('action'=>'delete', 'id_categ' => $categorie->id_categ));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

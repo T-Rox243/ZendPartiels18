@@ -1,0 +1,18 @@
+<?php
+$title = 'Archiver un utilisateur';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p>Êtes-vous sûr·e de vouloir archiver cet utilisateur : 
+  '<?php echo $this->escapeHtml($utilisateur->nom).' '.$this->escapeHtml($utilisateur->prenom); ?>' ?
+</p>
+<?php 
+$url = $this->url('produit', array('action' => 'delete', 'id_util'=>$this->id_util)); ?>
+<form action="<?php echo $url; ?>" method="post">
+<div>
+  <input type="hidden" name="id_util" value="<?php echo (int)$utilisateur->id_util; ?>" />
+  <input type="submit" name="del" value="Yes" />
+  <input type="submit" name="del" value="No" />
+</div>
+</form>

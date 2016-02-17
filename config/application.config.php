@@ -2,8 +2,7 @@
 return array(
     'modules' => array(
         'Application',
-        'Album',
-        'Produit',
+        'Admin',
         'Front',
         'DoctrineModule',
         'DoctrineORMModule',
