@@ -8,7 +8,7 @@ use Front\Entity\Front;
 use Front\Form\FrontForm;
 use Doctrine\ORM\EntityManager;
  
-class FrontController extends AbstractActionController
+class IndexController extends AbstractActionController
 {
     protected $em;
  
@@ -19,11 +19,15 @@ class FrontController extends AbstractActionController
         }
         return $this->em;
     }
+    
+    /*public function getListeCateg(){
+        $this->getEntityManager()->getRepository('Admin\Entity\Categorie')->findAll();
+    }*/
  
     public function indexAction()
     {
-        return new ViewModel(array(
-            'front' => $this->getEntityManager()->getRepository('Front\Entity\Front')->findAll(),
-        ));
+        $categ = $this->getEntityManager()->getRepository('Admin\Entity\Categorie')->findAll();
+        $this->layout()->setVariable('categories',$categ);
+        return new ViewModel(array());
     }
 }

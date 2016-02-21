@@ -1,11 +1,11 @@
 <?php
  
-namespace Admin\Controller;
+namespace Application\Controller;
  
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Admin\Entity\Categorie;
-use Admin\Form\CategorieForm;
+use Application\Entity\Categorie;
+use Application\Form\CategorieForm;
 use Doctrine\ORM\EntityManager;
  
 class CategorieController extends AbstractActionController
@@ -23,7 +23,7 @@ class CategorieController extends AbstractActionController
     public function indexAction()
     {
         return new ViewModel(array(
-            'categories' => $this->getEntityManager()->getRepository('Admin\Entity\Categorie')->findAll(),
+            'categories' => $this->getEntityManager()->getRepository('Application\Entity\Categorie')->findAll(),
         ));
     }
  
@@ -59,7 +59,7 @@ class CategorieController extends AbstractActionController
             ));
         }
  
-        $categorie = $this->getEntityManager()->find('Admin\Entity\Categorie', $id_categ);
+        $categorie = $this->getEntityManager()->find('Application\Entity\Categorie', $id_categ);
         if (!$categorie) {
             return $this->redirect()->toRoute('categorie', array(
                 'action' => 'index'
@@ -102,7 +102,7 @@ class CategorieController extends AbstractActionController
  
             if ($del == 'Yes') {
                 $id_categ = (int) $request->getPost('id_categ');
-                $categorie = $this->getEntityManager()->find('Admin\Entity\Categorie', $id_categ);
+                $categorie = $this->getEntityManager()->find('Application\Entity\Categorie', $id_categ);
                 if ($categorie) {
                     $this->getEntityManager()->remove($categorie);
                     $this->getEntityManager()->flush();
@@ -115,7 +115,7 @@ class CategorieController extends AbstractActionController
  
         return array(
             'id_categ'    => $id_categ,
-            'categorie' => $this->getEntityManager()->find('Admin\Entity\Categorie', $id_categ)
+            'categorie' => $this->getEntityManager()->find('Application\Entity\Categorie', $id_categ)
         );
     }
 }

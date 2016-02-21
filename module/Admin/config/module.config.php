@@ -6,7 +6,7 @@ return array(
             'Admin\Controller\Produit' => 'Admin\Controller\ProduitController',
             'Admin\Controller\Categorie' => 'Admin\Controller\CategorieController',
             'Admin\Controller\Utilisateur' => 'Admin\Controller\UtilisateurController',
-            'Admin\Controller\Categorie' => 'Admin\Controller\CategorieController',
+            'Admin\Controller\Caracteristique' => 'Admin\Controller\CaracteristiqueController',
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
         ),
     ),
@@ -16,7 +16,7 @@ return array(
             'produit' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/produit[/:action][/:id]',
+                    'route'    => 'produit[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -30,7 +30,7 @@ return array(
             'index' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/index[/:action][/:id]',
+                    'route'    => 'index[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -44,7 +44,7 @@ return array(
             'utilisateur' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/utilisateur[/:action][/:id]',
+                    'route'    => 'utilisateur[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -58,13 +58,27 @@ return array(
             'categorie' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/categorie[/:action][/:id]',
+                    'route'    => 'categorie[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
                         'controller' => 'Admin\Controller\Categorie',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'caracteristique' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => 'caracteristique[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Caracteristique',
                         'action'     => 'index',
                     ),
                 ),

@@ -3,7 +3,7 @@ $title = 'Produits';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
-<p><a href="<?php echo $this->url('produit', array( 
+<p><a href="/admin<?php echo $this->url('produit', array( 
         'action'=>'add'));?>">Ajouter un produit</a></p>
 
 <table class="table">
@@ -29,10 +29,8 @@ $this->headTitle($title);
     <td><?php echo $this->escapeHtml($produit->bl_nouv);?></td>
     <td><?php echo $this->escapeHtml($produit->bl_best);?></td>
     <td>
-        <a href="<?php echo $this->url('produit',
-            array('action'=>'edit', 'id_prod' => $produit->id_prod));?>">Edit</a>
-        <a href="<?php echo $this->url('produit',
-            array('action'=>'delete', 'id_prod' => $produit->id_prod));?>">Delete</a>
+        <a href="<?php echo $this->url('produit', array('action'=>'edit', 'id' => $produit->id_prod));?>">Edit</a>
+        <a href="<?php echo $this->url('produit', array('action'=>'delete', 'id' => $produit->id_prod));?>">Delete</a>
     </td>
 </tr>
 <?php endforeach; ?>

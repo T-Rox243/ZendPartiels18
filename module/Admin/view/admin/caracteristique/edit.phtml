@@ -1,0 +1,18 @@
+<?php
+$title = 'Modifier une caracteristique';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', 
+    $this->url('caracteristique', array('action' => 'edit', 'id_cara'=>$this->id_cara)));
+$form->prepare();
+
+echo $this->form()->openTag($form) . PHP_EOL;
+echo $this->formHidden($form->get('id_cara')) . PHP_EOL;
+echo $this->formRow($form->get('nom')) . PHP_EOL;
+echo $this->formInput($form->get('submit')) . PHP_EOL;
+echo $this->form()->closeTag($form) . PHP_EOL;
+

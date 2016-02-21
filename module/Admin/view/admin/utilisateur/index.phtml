@@ -22,9 +22,9 @@ $this->headTitle($title);
     <td><?php echo $this->escapeHtml($utilisateur->bl_acti);?></td>
     <td>
         <a href="<?php echo $this->url('utilisateur',
-            array('action'=>'edit', 'id_util' => $utilisateur->id_util));?>">Edit</a>
+            array('action'=>'edit', 'id' => $utilisateur->id_util));?>">Edit</a>
         <a href="<?php echo $this->url('utilisateur',
-            array('action'=>'delete', 'id_util' => $utilisateur->id_util));?>">Delete</a>
+            array('action'=>'delete', 'id' => $utilisateur->id_util));?>">Delete</a>
     </td>
 </tr>
 <?php endforeach; ?>

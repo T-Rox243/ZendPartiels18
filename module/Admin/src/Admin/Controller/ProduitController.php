@@ -52,7 +52,7 @@ class ProduitController extends AbstractActionController
  
     public function editAction()
     {
-        $id_prod = (int) $this->params()->fromRoute('id_prod', 0);
+        $id_prod = (int) $this->params()->fromRoute('id', 0);
         if (!$id_prod) {
             return $this->redirect()->toRoute('produit', array(
                 'action' => 'add'
@@ -84,14 +84,14 @@ class ProduitController extends AbstractActionController
         }
  
         return array(
-            'id_prod' => $id_prod,
+            'id' => $id_prod,
             'form' => $form,
         );
     }
  
     public function deleteAction()
     {
-        $id_prod = (int) $this->params()->fromRoute('id_prod', 0);
+        $id_prod = (int) $this->params()->fromRoute('id', 0);
         if (!$id_prod) {
             return $this->redirect()->toRoute('produit');
         }
@@ -101,7 +101,7 @@ class ProduitController extends AbstractActionController
             $del = $request->getPost('del', 'No');
  
             if ($del == 'Yes') {
-                $id_prod = (int) $request->getPost('id_prod');
+                $id_prod = (int) $request->getPost('id');
                 $produit = $this->getEntityManager()->find('Admin\Entity\Produit', $id_prod);
                 if ($produit) {
                     $this->getEntityManager()->remove($produit);

@@ -4,6 +4,9 @@ namespace Admin;
 
 use Admin\Model\ProduitTable;
 use Admin\Model\UtilisateurTable;
+use Admin\Model\CategorieTable;
+use Admin\Model\CategProdTable;
+use Admin\Model\CaracteristiqueTable;
 
 class Module
 {
@@ -37,7 +40,17 @@ class Module
                 },
                 'Admin\Model\CategorieTable' =>  function($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $table = new UtilisateurTable($dbAdapter);
+                    $table = new CategorieTable($dbAdapter);
+                    return $table;
+                },
+                'Admin\Model\CategProdTable' =>  function($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $table = new CategProdTable($dbAdapter);
+                    return $table;
+                },
+                'Admin\Model\CaracteristiqueTable' =>  function($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $table = new CaracteristiqueTable($dbAdapter);
                     return $table;
                 },
             ),

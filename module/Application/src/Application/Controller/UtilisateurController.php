@@ -1,11 +1,11 @@
 <?php
  
-namespace Admin\Controller;
+namespace Application\Controller;
  
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Admin\Entity\Utilisateur;
-use Admin\Form\UtilisateurForm;
+use Application\Entity\Utilisateur;
+use Application\Form\UtilisateurForm;
 use Doctrine\ORM\EntityManager;
  
 class UtilisateurController extends AbstractActionController
@@ -23,7 +23,7 @@ class UtilisateurController extends AbstractActionController
     public function indexAction()
     {
         return new ViewModel(array(
-            'utilisateurs' => $this->getEntityManager()->getRepository('Admin\Entity\Utilisateur')->findAll(),
+            'utilisateurs' => $this->getEntityManager()->getRepository('Application\Entity\Utilisateur')->findAll(),
         ));
     }
  
@@ -59,7 +59,7 @@ class UtilisateurController extends AbstractActionController
             ));
         }
  
-        $utilisateur = $this->getEntityManager()->find('Admin\Entity\Utilisateur', $id_util);
+        $utilisateur = $this->getEntityManager()->find('Application\Entity\Utilisateur', $id_util);
         if (!$utilisateur) {
             return $this->redirect()->toRoute('utilisateur', array(
                 'action' => 'index'
@@ -102,7 +102,7 @@ class UtilisateurController extends AbstractActionController
  
             if ($del == 'Yes') {
                 $id_util = (int) $request->getPost('id_util');
-                $utilisateur = $this->getEntityManager()->find('Admin\Entity\Utilisateur', $id_util);
+                $utilisateur = $this->getEntityManager()->find('Application\Entity\Utilisateur', $id_util);
                 if ($utilisateur) {
                     $this->getEntityManager()->remove($utilisateur);
                     $this->getEntityManager()->flush();

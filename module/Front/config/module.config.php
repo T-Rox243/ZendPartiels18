@@ -3,7 +3,10 @@ namespace Front;
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Front\Controller\Front' => 'Front\Controller\FrontController',
+            'Front\Controller\Index' => 'Front\Controller\IndexController',
+            'Front\Controller\Categorie' => 'Front\Controller\CategorieController',
+            'Front\Controller\Produit' => 'Front\Controller\ProduitController',
+            'Front\Controller\Compte' => 'Front\Controller\CompteController',
         ),
     ),
     
@@ -12,14 +15,56 @@ return array(
             'front' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/front[/:action][/:id]',
+                    'route'    => '/index[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Front\Controller\Front',
+                        'controller' => 'Front\Controller\Index',
                         'action'     => 'index',
+                    ),
+                ),
+            ),
+            'categorie' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/categorie[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Front\Controller\Categorie',
+                        'action'     => 'liste',
+                    ),
+                ),
+            ),
+            'produit' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/produit[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Front\Controller\Produit',
+                        'action'     => 'fiche',
+                    ),
+                ),
+            ),
+            'compte' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/compte[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Front\Controller\Compte',
+                        'action'     => 'inscription',
                     ),
                 ),
             ),

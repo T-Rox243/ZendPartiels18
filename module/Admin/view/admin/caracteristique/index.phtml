@@ -1,0 +1,25 @@
+<?php 
+$title = 'Caracteristiques';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a href="<?php echo $this->url('caracteristique', array( 
+        'action'=>'add'));?>">Ajouter une categorie</a></p>
+
+<table class="table">
+<tr>
+    <th>Nom</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($caracteristiques as $caracteristique) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($caracteristique->nom);?></td>
+    <td>
+        <a href="<?php echo $this->url('caracteristique',
+            array('action'=>'edit', 'id' => $caracteristique->id_cara));?>">Edit</a>
+        <a href="<?php echo $this->url('caracteristique',
+            array('action'=>'delete', 'id' => $caracteristique->id_cara));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

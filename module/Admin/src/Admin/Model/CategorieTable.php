@@ -36,6 +36,16 @@ class CategorieTable extends AbstractTableGateway
         return $row;
     }
 
+    public function getCategByNom($nom_categ)
+    {
+        $rowset = $this->select(array('nom' => $nom_categ));
+        $row = $rowset->current();
+        if (!$row) {
+            throw new \Exception("Could not find row $nom_categ");
+        }
+        return $row;
+    }
+
     public function saveCategorie(Categorie $categorie)
     {
         $data = array(

@@ -6,11 +6,12 @@ $this->headTitle($title);
 
 <?php
 $form = $this->form;
-$form->setAttribute('action', 
-    $this->url('produit', array('action' => 'edit', 'id_prod'=>$this->id_prod)));
-$form->prepare();
+//$form->setAttribute('action',$this->url('produit', array('action' => 'edit', 'id'=>$this->id_prod)));
+$form->prepare(); ?>
 
-echo $this->form()->openTag($form) . PHP_EOL;
+<form method="post" action="<?php echo $this->url('produit', array('action' => 'edit', 'id'=>$this->id_prod)); ?>">
+<?php 
+//echo $this->form()->openTag($form) . PHP_EOL;
 echo $this->formHidden($form->get('id_prod')) . PHP_EOL;
 echo $this->formRow($form->get('nom')) . PHP_EOL;
 echo $this->formRow($form->get('reference')) . PHP_EOL;
@@ -21,5 +22,8 @@ echo $this->formRow($form->get('bl_archive')) . PHP_EOL;
 echo $this->formRow($form->get('bl_nouv')) . PHP_EOL;
 echo $this->formRow($form->get('bl_best')) . PHP_EOL;
 echo $this->formInput($form->get('submit')) . PHP_EOL;
-echo $this->form()->closeTag($form) . PHP_EOL;
+//echo $this->form()->closeTag($form) . PHP_EOL;
+?>
+
+</form>
 

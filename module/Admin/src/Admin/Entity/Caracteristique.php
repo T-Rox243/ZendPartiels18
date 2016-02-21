@@ -11,9 +11,9 @@ use Zend\InputFilter\InputFilterInterface;
  * A music produit.
  *
  * @ORM\Entity
- * @ORM\Table(name="utilisateur")
+ * @ORM\Table(name="caracteristique")
  */
-class Utilisateur implements InputFilterAwareInterface 
+class Caracteristique implements InputFilterAwareInterface 
 {
     protected $inputFilter;
   
@@ -22,34 +22,12 @@ class Utilisateur implements InputFilterAwareInterface
      * @ORM\Column(type="integer");
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id_util;
+    protected $id_cara;
   
     /**
      * @ORM\Column(type="string")
      */
     protected $nom;
-  
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $prenom;
-  
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $email;
-    
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $motdepasse;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $bl_acti;
-
-
     /**
      * Magic getter to expose protected properties.
      *
@@ -89,12 +67,8 @@ class Utilisateur implements InputFilterAwareInterface
      */
     public function exchangeArray($data = array()) 
     {
-        $this->id_util = $data['id_util'];
+        $this->id_cara = $data['id_cara'];
         $this->nom = $data['nom'];
-        $this->prenom = $data['prenom'];
-        $this->email = $data['email'];
-        $this->motdepasse = $data['motdepasse'];
-        $this->bl_acti = $data['bl_acti'];
     }
   
     public function setInputFilter(InputFilterInterface $inputFilter)
@@ -108,7 +82,7 @@ class Utilisateur implements InputFilterAwareInterface
             $inputFilter = new InputFilter();
  
             $inputFilter->add(array(
-                'name'     => 'id_util',
+                'name'     => 'id_cara',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
@@ -118,24 +92,6 @@ class Utilisateur implements InputFilterAwareInterface
             $inputFilter->add(array(
                 'name'     => 'nom',
                 'required' => true,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-            ));
- 
-            $inputFilter->add(array(
-                'name'     => 'prenom',
-                'required' => false,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-            ));
- 
-            $inputFilter->add(array(
-                'name'     => 'email',
-                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),

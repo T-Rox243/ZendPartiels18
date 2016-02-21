@@ -20,9 +20,9 @@ $this->headTitle($title);
     <td><?php echo $this->escapeHtml($categorie->description);?></td>
     <td>
         <a href="<?php echo $this->url('categorie',
-            array('action'=>'edit', 'id_categ' => $categorie->id_categ));?>">Edit</a>
+            array('action'=>'edit', 'id' => $categorie->id_categ));?>">Edit</a>
         <a href="<?php echo $this->url('categorie',
-            array('action'=>'delete', 'id_categ' => $categorie->id_categ));?>">Delete</a>
+            array('action'=>'delete', 'id' => $categorie->id_categ));?>">Delete</a>
     </td>
 </tr>
 <?php endforeach; ?>

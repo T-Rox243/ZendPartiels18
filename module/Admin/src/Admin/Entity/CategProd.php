@@ -11,45 +11,23 @@ use Zend\InputFilter\InputFilterInterface;
  * A music produit.
  *
  * @ORM\Entity
- * @ORM\Table(name="utilisateur")
+ * @ORM\Table(name="categ_prod")
  */
-class Utilisateur implements InputFilterAwareInterface 
+class CategProd implements InputFilterAwareInterface 
 {
     protected $inputFilter;
   
     /**
      * @ORM\Id
      * @ORM\Column(type="integer");
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id_util;
+    protected $id_categ;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer");
+     */
+    protected $id_prod;
   
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $nom;
-  
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $prenom;
-  
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $email;
-    
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $motdepasse;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $bl_acti;
-
-
     /**
      * Magic getter to expose protected properties.
      *
@@ -89,12 +67,10 @@ class Utilisateur implements InputFilterAwareInterface
      */
     public function exchangeArray($data = array()) 
     {
-        $this->id_util = $data['id_util'];
+        $this->id_categ = $data['id_categ'];
         $this->nom = $data['nom'];
-        $this->prenom = $data['prenom'];
-        $this->email = $data['email'];
-        $this->motdepasse = $data['motdepasse'];
-        $this->bl_acti = $data['bl_acti'];
+        $this->url_img = $data['url_img'];
+        $this->description = $data['description'];
     }
   
     public function setInputFilter(InputFilterInterface $inputFilter)
@@ -108,37 +84,17 @@ class Utilisateur implements InputFilterAwareInterface
             $inputFilter = new InputFilter();
  
             $inputFilter->add(array(
-                'name'     => 'id_util',
+                'name'     => 'id_categ',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),
             ));
- 
             $inputFilter->add(array(
-                'name'     => 'nom',
+                'name'     => 'id_prod',
                 'required' => true,
                 'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-            ));
- 
-            $inputFilter->add(array(
-                'name'     => 'prenom',
-                'required' => false,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-            ));
- 
-            $inputFilter->add(array(
-                'name'     => 'email',
-                'required' => false,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
+                    array('name' => 'Int'),
                 ),
             ));
  

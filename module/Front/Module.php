@@ -29,6 +29,11 @@ class Module
                     $table = new FrontTable($dbAdapter);
                     return $table;
                 },
+                'Admin\Model\CategorieTable' =>  function($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $table = new CategorieTable($dbAdapter);
+                    return $table;
+                },
             ),
         );
     }    

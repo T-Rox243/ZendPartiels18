@@ -1,0 +1,18 @@
+<?php
+$title = 'Archiver une caracteristique';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p>Êtes-vous sûr·e de vouloir archiver cette caracteristique : 
+  '<?php echo $this->escapeHtml($caracteristique->nom); ?>' ?
+</p>
+<?php 
+$url = $this->url('caracteristique', array('action' => 'delete', 'id_cara'=>$this->id_cara)); ?>
+<form action="<?php echo $url; ?>" method="post">
+<div>
+  <input type="hidden" name="id_cara" value="<?php echo (int)$caracteristique->id_cara; ?>" />
+  <input type="submit" name="del" value="Yes" />
+  <input type="submit" name="del" value="No" />
+</div>
+</form>
