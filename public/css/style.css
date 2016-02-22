@@ -3,3 +3,7 @@
 .navbar-inverse{
 	margin-bottom:0px;
 }
+
+.thumbnail-list{
+	min-height: 567px;
+}
