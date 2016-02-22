@@ -15,7 +15,7 @@ return array(
             'front' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/index[/:action][/:id]',
+                    'route'    => '/index[/:action[/:id]]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -29,7 +29,7 @@ return array(
             'categorie' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/categorie[/:action][/:id]',
+                    'route'    => '/categorie[/:action[/:id]]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -43,7 +43,7 @@ return array(
             'produit' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/produit[/:action][/:id]',
+                    'route'    => '/produit[/:action[/:id]]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -57,14 +57,14 @@ return array(
             'compte' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/compte[/:action][/:id]',
+                    'route'    => '/compte[/:action[/:id]]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
                         'controller' => 'Front\Controller\Compte',
-                        'action'     => 'inscription',
+                        'action'     => 'index',
                     ),
                 ),
             ),

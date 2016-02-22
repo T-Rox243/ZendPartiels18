@@ -24,6 +24,11 @@ class CompteController extends AbstractActionController
     {
         return new ViewModel(array());
     }
+ 
+    public function connexionAction()
+    {
+        return new ViewModel(array());
+    }
     
     public function inscriptionAction()
     {
@@ -38,7 +43,6 @@ class CompteController extends AbstractActionController
                 $form->setInputFilter($utilisateur->getInputFilter());
                 $form->setData($request->getPost());
                 if ($form->isValid()) {
-                    echo 'test';exit;
                     $utilisateur->exchangeArray($form->getData());
                     $this->getEntityManager()->persist($utilisateur);
                     $this->getEntityManager()->flush();
@@ -50,6 +54,21 @@ class CompteController extends AbstractActionController
         }
         return new ViewModel(array('form' => $form));
         //return array('form' => $form);
+    }
+    
+    public function nouvellelisteAction(){
+        //faire authentification
+        //récup id_util
+        //formulaire liste
+        //enregistrement
+    }
+    
+    public function ajoutlisteAction(){
+        //faire authentification
+        //recup id_util
+        //récup id_prod
+        //récup id_liste
+        //enregistrement
     }
  
     public function ficheAction()
