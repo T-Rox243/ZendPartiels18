@@ -94,7 +94,11 @@ class Utilisateur implements InputFilterAwareInterface
         $this->prenom = $data['prenom'];
         $this->email = $data['email'];
         $this->motdepasse = $data['motdepasse'];
-        $this->bl_acti = $data['bl_acti'];
+        if(isset($data['bl_acti'])){
+            $this->bl_acti = $data['bl_acti'];
+        }else{
+            $this->bl_acti = 1;
+        }
     }
   
     public function setInputFilter(InputFilterInterface $inputFilter)

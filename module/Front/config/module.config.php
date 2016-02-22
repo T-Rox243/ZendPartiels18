@@ -9,6 +9,12 @@ return array(
             'Front\Controller\Compte' => 'Front\Controller\CompteController',
             'Front\Controller\Contact' => 'Front\Controller\ContactController',
         ),
+        'factories' => array(
+            'Front\Controller\Auth' => function($controller) {
+                $authController = new \Front\Controller\AuthController($controller->getServiceLocator()->get('Zend\Authentication\AuthenticationService'));
+                return $authController;
+            },
+        ),
     ),
     
     'router' => array(
@@ -104,5 +110,16 @@ return array(
                 ),
             ),
         ),
+    ),
+    'doctrine_factories' => array(
+        'authenticationadapter' => 'Front\Factory\Authentication\AdapterFactory',
+    ),
+    
+    'service_manager' => array(
+        'factories' => array(
+            'Zend\Authentication\AuthenticationService' => function($serviceManager) {
+                return $serviceManager->get('doctrine.authenticationservice.orm_default');
+            }
+        )  
     ),
 );

@@ -8,6 +8,7 @@ $form->prepare();
   <div class="panel-body">
 		<form class="form-horizontal" action="<?php echo $this->url('compte', array('action' => 'inscription')); ?>" method="post">
 		  <fieldset>
+                      <?php echo $this->formHidden($form->get('id_util')) . PHP_EOL; ?>
 		    <legend>Inscription</legend>
 		    <div class="form-group">
 		      <label for="inputPrenom" class="col-lg-2 control-label">Prénom</label>

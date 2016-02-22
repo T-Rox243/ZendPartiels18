@@ -6,6 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Admin\Entity\Utilisateur;
 use Front\Form\CompteForm;
+use Front\Controller\AuthController;
 use Doctrine\ORM\EntityManager;
  
 class CompteController extends AbstractActionController
@@ -27,7 +28,35 @@ class CompteController extends AbstractActionController
  
     public function connexionAction()
     {
-        return new ViewModel(array());
+        $form = new CompteForm();
+        $form->get('submit')->setValue('Connexion');
+        
+        
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $post = $request->getPost();
+            
+            $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+            $adapter = $authService->getAdapter();
+            var_dump($authService);exit;
+            
+            $auth = new AuthController($authService);
+            $auth->loginAction($post->email, $post->motdepasse);
+
+            /*$adapter->setIdentityValue($data['login']);
+            $adapter->setCredentialValue($data['password']);
+            $authResult = $authService->authenticate();
+            var_dump($authResult);exit;
+    
+            if ($authResult->isValid()) {
+                echo 'login succeded';
+            } else {
+                echo 'login failed';
+            }
+
+            die;*/
+        }
+        return new ViewModel(array('form' => $form));
     }
     
     public function inscriptionAction()
@@ -48,7 +77,7 @@ class CompteController extends AbstractActionController
                     $this->getEntityManager()->flush();
 
                     // Redirect to list of utilisateurs
-                    return $this->redirect()->toRoute('utilisateur');
+                    return $this->redirect()->toRoute('index');
                 }
             }
         }
