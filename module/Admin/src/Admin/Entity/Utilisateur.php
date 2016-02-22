@@ -42,7 +42,7 @@ class Utilisateur implements InputFilterAwareInterface
     /**
      * @ORM\Column(type="string")
      */
-    protected $motdepasse;
+    protected $password;
 
     /**
      * @ORM\Column(type="boolean")
@@ -93,7 +93,7 @@ class Utilisateur implements InputFilterAwareInterface
         $this->nom = $data['nom'];
         $this->prenom = $data['prenom'];
         $this->email = $data['email'];
-        $this->motdepasse = $data['motdepasse'];
+        $this->password = $data['password'];
         if(isset($data['bl_acti'])){
             $this->bl_acti = $data['bl_acti'];
         }else{

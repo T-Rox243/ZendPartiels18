@@ -38,23 +38,12 @@ class CompteController extends AbstractActionController
             
             $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
             $adapter = $authService->getAdapter();
-            var_dump($authService);exit;
             
             $auth = new AuthController($authService);
-            $auth->loginAction($post->email, $post->motdepasse);
-
-            /*$adapter->setIdentityValue($data['login']);
-            $adapter->setCredentialValue($data['password']);
-            $authResult = $authService->authenticate();
-            var_dump($authResult);exit;
-    
-            if ($authResult->isValid()) {
-                echo 'login succeded';
-            } else {
-                echo 'login failed';
+            $validAuth = $auth->loginAction($post->email, $post->password);
+            if($validAuth){
+                $this->redirect()->toRoute('compte');
             }
-
-            die;*/
         }
         return new ViewModel(array('form' => $form));
     }
@@ -67,7 +56,7 @@ class CompteController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
             $post = $request->getPost();
-            if(($post->motdepasse == $post->confmotdepasse) && !empty($post->email)){
+            if(($post->password == $post->confmotdepasse) && !empty($post->email)){
                 $utilisateur = new Utilisateur();
                 $form->setInputFilter($utilisateur->getInputFilter());
                 $form->setData($request->getPost());

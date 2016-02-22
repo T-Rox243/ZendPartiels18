@@ -28,6 +28,7 @@ class IndexController extends AbstractActionController
     {
         $categ = $this->getEntityManager()->getRepository('Admin\Entity\Categorie')->findAll();
         $this->layout()->setVariable('categories',$categ);
+        $produits = $this->getEntityManager()->getRepository('Admin\Entity\Produit')->findAll();
         return new ViewModel(array($produits));
     }
 }

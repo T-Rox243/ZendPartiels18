@@ -15,23 +15,20 @@ class AuthController extends AbstractActionController
     
     public function loginAction($email,$mdp)
     {
+        $auth = false;
         //you can grab this data from the Form in real life app
         $data['login'] = $email; 
         $data['password'] = $mdp;
-        var_dump($this->authService);exit;
         
-        $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+        $authService = $this->authService;
         $adapter = $authService->getAdapter();
         $adapter->setIdentityValue($data['login']);
         $adapter->setCredentialValue($data['password']);
         $authResult = $authService->authenticate();
     
         if ($authResult->isValid()) {
-            echo 'login succeded';
-        } else {
-            echo 'login failed';
+            $auth = true;
         }
-        
-        die;
+        return $auth;
     }
 }

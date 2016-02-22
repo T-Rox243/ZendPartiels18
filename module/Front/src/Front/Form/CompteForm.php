@@ -53,7 +53,7 @@ class CompteForm extends Form
         ));
 
         $this->add(array(
-            'name' => 'motdepasse',
+            'name' => 'password',
             'attributes' => array(
                 'type'  => 'password',
                 'class' => 'form-control',

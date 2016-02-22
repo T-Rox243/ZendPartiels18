@@ -109,6 +109,13 @@ return array(
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
                 ),
             ),
+        ),'authentication' => array(
+            'orm_default' => array(
+                'object_manager' => 'Doctrine\ORM\EntityManager',
+                'identity_class' => 'Admin\Entity\Utilisateur',
+                'identity_property' => 'email',
+                'credential_property' => 'password',
+            ),
         ),
     ),
     'doctrine_factories' => array(
