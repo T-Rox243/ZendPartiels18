@@ -1,4 +1,23 @@
+
+
+<div class="row">
+  <h1><?php echo $produit[0]->nom; ?></h1>
+  <p><?php echo $produit[0]->reference; ?></p>
+
+    <div class="panel panel-default">
+		<div class="panel-heading"><h4>Description</h4></div>
+		<div class="panel-body">
+			<div class="row">
+				<p><?php echo $produit[0]->description; ?></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><a class="btn btn-primary btn-lg" href="<?php echo $this->url('categorie',array('action' => 'liste')); ?>">Ajouter a ma liste d'envies</a></p>
+
+
+
 <?php
 
 var_dump($produit);
-

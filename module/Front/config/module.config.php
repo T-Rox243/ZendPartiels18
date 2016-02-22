@@ -7,6 +7,7 @@ return array(
             'Front\Controller\Categorie' => 'Front\Controller\CategorieController',
             'Front\Controller\Produit' => 'Front\Controller\ProduitController',
             'Front\Controller\Compte' => 'Front\Controller\CompteController',
+            'Front\Controller\Contact' => 'Front\Controller\ContactController',
         ),
     ),
     
@@ -64,6 +65,20 @@ return array(
                     ),
                     'defaults' => array(
                         'controller' => 'Front\Controller\Compte',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'contact' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/contact[/:action[/:id]]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Front\Controller\Contact',
                         'action'     => 'index',
                     ),
                 ),
