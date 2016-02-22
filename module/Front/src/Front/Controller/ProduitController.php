@@ -36,4 +36,17 @@ class ProduitController extends AbstractActionController
         $this->layout()->setVariable('categories',$categ);
         return new ViewModel(array('produit' => $produit));
     }
+
+    public function listeProduitsAction()
+    {
+        
+        $id_prod = $this->params()->fromRoute('id', 0);
+        
+        $eP = $this->getEntityManager()->getRepository('Admin\Entity\Produit');
+        $produit = $eP->findBy(array('id_prod' => $id_prod));
+        
+        return new ViewModel(array('produit' => $produit));
+    }
+
+
 }
