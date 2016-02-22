@@ -22,7 +22,7 @@
 
   <body>
 
-    <nav class="navbar">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -52,12 +52,24 @@
             <li><a href="<?php echo $this->url('front',array('action' => 'contact')); ?>">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Liste d'envies</a></li>
             <li><a href="<?php echo $this->url('compte',array('action' => 'connexion')); ?>">Connexion</a></li>
             <li><a href="<?php echo $this->url('compte',array('action' => 'inscription')); ?>">Inscription</a></li>
           </ul>
         </div>
+
       </div>
     </nav>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li>
+          <?php if($this->layout()->categories != null){
+            foreach ($this->layout()->categories as $categ){ ?>
+            <li><a href="<?php echo $this->url('categorie',array('action' => 'liste', 'id' => $categ->nom)); ?>"><?php echo $categ->nom; ?></a></li>
+            <?php  } 
+          }?>
+    </div><br>
 
 
     <div class="container">
