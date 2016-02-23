@@ -83,21 +83,6 @@ class CompteController extends AbstractActionController
         return new ViewModel(array('form' => $form));
         //return array('form' => $form);
     }
-    
-    public function nouvellelisteAction(){
-        //faire authentification
-        //récup id_util
-        //formulaire liste
-        //enregistrement
-    }
-    
-    public function ajoutlisteAction(){
-        //faire authentification
-        //recup id_util
-        //récup id_prod
-        //récup id_liste
-        //enregistrement
-    }
  
     public function ficheAction()
     {

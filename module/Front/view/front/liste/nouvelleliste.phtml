@@ -1,0 +1,30 @@
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('liste', array('action' => 'nouvelleliste')));
+$form->prepare();
+?>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+		<form class="form-horizontal" action="<?php echo $this->url('liste', array('action' => 'nouvelleliste')); ?>" method="post">
+		  <fieldset>
+                      <?php echo $this->formHidden($form->get('id_liste')) . PHP_EOL; ?>
+                      <?php echo $this->formHidden($form->get('id_util')) . PHP_EOL; ?>
+		    <legend>Nouvelle liste</legend>
+		    <div class="form-group">
+		      <label for="inputNom" class="col-lg-2 control-label">Nom</label>
+		      <div class="col-lg-10">
+		        <?php echo $this->formRow($form->get('nom')) . PHP_EOL; ?>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <div class="col-lg-10 col-lg-offset-2">
+                          <?php echo $this->formInput($form->get('submit')) . PHP_EOL; ?>
+		      </div>
+		    </div>
+		  </fieldset>
+		</form>
+	</div>
+</div>
+ 
+</div>
