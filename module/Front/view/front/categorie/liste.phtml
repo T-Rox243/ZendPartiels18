@@ -8,6 +8,9 @@
         <p><?php echo substr($produit[0]->description, 0, 150) ?></p><br>
         <p><a href="<?php echo $this->url('produit', array('action' => 'fiche', 'id' => $produit[0]->id_prod)); ?>" class="btn btn-primary" role="button">En savoir plus</a></p>
         <p><a href="<?php echo $this->url('liste', array('action' => 'ajoutliste', 'id' => $produit[0]->id_prod)); ?>" class="btn btn-default" role="button">Ajouter à ma liste d'envies</a></p>
+        <?php if($user = $this->identity()){ ?>
+        <p><a href="<?php echo $this->url('liste', array('action' => 'ajoutliste', 'id' => $produit[0]->id_prod)); ?>" class="btn btn-default" role="button">Ajouter à ma liste d'envies</a></p>
+        <?php } ?>
       </div>
     </div>
   </div>
