@@ -5,6 +5,7 @@ namespace Front\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Front\Entity\Liste;
+use Front\Entity\ListeProd;
 use Front\Form\ListeForm;
 use Doctrine\ORM\EntityManager;
  
@@ -26,9 +27,14 @@ class ListeController extends AbstractActionController
         return new ViewModel(array('listes' => $listes));
     }
     
+    public function ajoutlisteAction(){
+        $id_prod = $this->params()->fromRoute('id', 0);
+        return new ViewModel(array('id_prod'=>$id_prod));
+    }
+    
     public function nouvellelisteAction(){
-        //faire authentification
         if($user = $this->identity()){
+            $id_prod = $this->params()->fromRoute('id', 0);
             $form = new ListeForm();
             $form->get('submit')->setValue('Ajouter');
             $form->get('id_util')->setValue($this->identity()->id_util);
@@ -43,8 +49,15 @@ class ListeController extends AbstractActionController
                     $liste->exchangeArray($form->getData());
                     $this->getEntityManager()->persist($liste);
                     $this->getEntityManager()->flush();
+                    
+                    $listeProd = new ListeProd();
+                    $data = array();
+                    $data['id_liste'] = $liste->getId();
+                    $data['id_prod'] = $id_prod;
+                    $listeProd->exchangeArray($data);
+                    $this->getEntityManager()->persist($listeProd);
+                    $this->getEntityManager()->flush();
 
-                    // Redirect to list of produits
                     return $this->redirect()->toRoute('liste');
                 }
             }
@@ -52,16 +65,12 @@ class ListeController extends AbstractActionController
         }else{
             $this->redirect()->toRoute('compte');
         }
-        //récup id_util
-        //formulaire liste
-        //enregistrement
     }
     
-    public function ajoutlisteAction(){
+    public function modificationlisteAction(){
         //faire authentification
-        //recup id_util
-        //récup id_prod
-        //récup id_liste
+        //récup id_util
+        //formulaire liste
         //enregistrement
     }
  

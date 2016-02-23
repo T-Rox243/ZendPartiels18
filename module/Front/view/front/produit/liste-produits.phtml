@@ -7,7 +7,7 @@
         <h3><?php echo $produit->nom; ?></h3>
         <p><?php echo substr($produit->description, 0, 200) ?></p><br>
         <p><a href="<?php echo $this->url('produit', array('action' => 'fiche', 'id' => $produit->id_prod)); ?>" class="btn btn-primary" role="button">En savoir plus</a></p>
-        <p><a href="<?php echo $this->url('liste', array('action' => 'nouvelleliste')); ?>" class="btn btn-default" role="button">Ajouter à ma lise d'envies</a></p>
+        <p><a href="<?php echo $this->url('liste', array('action' => 'ajoutliste', 'id' => $produit->id_prod)); ?>" class="btn btn-default" role="button">Ajouter à ma lise d'envies</a></p>
       </div>
     </div>
   </div>

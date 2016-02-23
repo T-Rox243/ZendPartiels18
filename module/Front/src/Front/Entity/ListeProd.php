@@ -11,9 +11,9 @@ use Zend\InputFilter\InputFilterInterface;
  * A music produit.
  *
  * @ORM\Entity
- * @ORM\Table(name="liste")
+ * @ORM\Table(name="liste_prod")
  */
-class Liste implements InputFilterAwareInterface 
+class ListeProd implements InputFilterAwareInterface 
 {
     protected $inputFilter;
   
@@ -22,17 +22,17 @@ class Liste implements InputFilterAwareInterface
      * @ORM\Column(type="integer");
      * @ORM\GeneratedValue(strategy="AUTO")
      */
+    protected $id_listeprod;
+  
+    /**
+     * @ORM\Column(type="integer");
+     */
     protected $id_liste;
     
     /**
      * @ORM\Column(type="integer");
      */
-    protected $id_util;
-  
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $nom;
+    protected $id_prod;
   
     /**
      * Magic getter to expose protected properties.
@@ -55,10 +55,6 @@ class Liste implements InputFilterAwareInterface
     {
         $this->$property = $value;
     }
-    
-    public function getId(){
-        return $this->id_liste;
-    }
   
     /**
      * Convert the object to an array.
@@ -77,9 +73,11 @@ class Liste implements InputFilterAwareInterface
      */
     public function exchangeArray($data = array()) 
     {
+        if(isset($data['id_listeprod'])){
+            $this->id_listeprod = $data['id_listeprod'];
+        }
         $this->id_liste = $data['id_liste'];
-        $this->id_util = $data['id_util'];
-        $this->nom = $data['nom'];
+        $this->id_prod = $data['id_prod'];
     }
   
     public function setInputFilter(InputFilterInterface $inputFilter)
