@@ -45,7 +45,8 @@
             <li><a href="<?php echo $this->url('compte',array('action' => 'connexion')); ?>">Connexion</a></li>
             <li><a href="<?php echo $this->url('compte',array('action' => 'inscription')); ?>">Inscription</a></li>
             <?php }else{ ?>
-            <li><a href="#">Liste d'envies</a></li>
+            <li><a href="<?php echo $this->url('liste',array('action' => 'index')); ?>">Liste d'envies</a></li>
+            <li><a href="<?php echo $this->url('compte',array('action' => 'index')); ?>">Mon compte</a></li>
             <li><a href="<?php echo $this->url('compte',array('action' => 'deconnexion')); ?>">Déconnexion</a></li>
             <?php } ?>
           </ul>

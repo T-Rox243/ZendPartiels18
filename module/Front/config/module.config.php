@@ -8,6 +8,7 @@ return array(
             'Front\Controller\Produit' => 'Front\Controller\ProduitController',
             'Front\Controller\Compte' => 'Front\Controller\CompteController',
             'Front\Controller\Contact' => 'Front\Controller\ContactController',
+            'Front\Controller\Liste' => 'Front\Controller\ListeController',
         ),
         'factories' => array(
             'Front\Controller\Auth' => function($controller) {
@@ -85,6 +86,20 @@ return array(
                     ),
                     'defaults' => array(
                         'controller' => 'Front\Controller\Contact',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'liste' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/liste[/:action[/:id]]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Front\Controller\Liste',
                         'action'     => 'index',
                     ),
                 ),
