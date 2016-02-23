@@ -1,0 +1,7 @@
+<?php 
+foreach ($listes as $liste){ ?>
+<div class="row">
+    <p><?php echo $liste->nom; ?></p>
+    <p><a href="<?php echo $this->url('liste', array('action' => 'modification','id' => $liste->id_liste)); ?>" class="btn btn-default" role="button">Gérer ma liste d'envies</a></p>
+</div>
+<?php } ?>

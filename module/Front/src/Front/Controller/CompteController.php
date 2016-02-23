@@ -23,7 +23,8 @@ class CompteController extends AbstractActionController
  
     public function indexAction()
     {
-        return new ViewModel(array());
+        $utilisateur = $this->getEntityManager()->getRepository('Admin\Entity\Utilisateur')->findBy(array('id_util' => $this->identity()->id_util));
+        return new ViewModel(array('utilisateur' => $utilisateur));
     }
  
     public function connexionAction()

@@ -10,7 +10,7 @@
 	  <div class="col-md-6">
 	  		<p>REF: <?php echo $produit[0]->reference; ?></p>
 	  		<h3>Prix: <?php echo $produit[0]->prix; ?> €</h3><br>
-	  		<p><a class="btn btn-primary btn-lg" href="<?php echo $this->url('liste', array('action' => 'nouvelleliste')); ?>">Ajouter a ma liste d'envies</a></p>
+	  		<p><a class="btn btn-primary btn-lg" href="<?php echo $this->url('liste', array('action' => 'nouvelleliste','id' => $produit[0]->prix)); ?>">Ajouter a ma liste d'envies</a></p>
 	  </div>
 	</div>
 

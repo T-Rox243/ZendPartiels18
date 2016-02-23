@@ -38,6 +38,7 @@ class ListeController extends AbstractActionController
             $form = new ListeForm();
             $form->get('submit')->setValue('Ajouter');
             $form->get('id_util')->setValue($this->identity()->id_util);
+            $form->get('id_prod')->setValue($id_prod);
 
             $request = $this->getRequest();
             if ($request->isPost()) {
@@ -50,10 +51,9 @@ class ListeController extends AbstractActionController
                     $this->getEntityManager()->persist($liste);
                     $this->getEntityManager()->flush();
                     
+                    $data = $form->getData();
                     $listeProd = new ListeProd();
-                    $data = array();
                     $data['id_liste'] = $liste->getId();
-                    $data['id_prod'] = $id_prod;
                     $listeProd->exchangeArray($data);
                     $this->getEntityManager()->persist($listeProd);
                     $this->getEntityManager()->flush();
@@ -67,11 +67,25 @@ class ListeController extends AbstractActionController
         }
     }
     
-    public function modificationlisteAction(){
-        //faire authentification
-        //récup id_util
-        //formulaire liste
-        //enregistrement
+    public function modificationAction(){
+        $data = array();
+        $listeProd = new ListeProd();
+        $data['id_prod'] = 4;
+        $data['id_liste'] = $this->params()->fromRoute('id', 0);
+        $listeProd->exchangeArray($data);
+        $this->getEntityManager()->persist($listeProd);
+        $this->getEntityManager()->flush();
+
+        return $this->redirect()->toRoute('liste');
+    }
+    
+    public function modifierlisteAction(){
+        if($user = $this->identity()){
+            $listeEnvies = $this->getEntityManager()->getRepository('Front\Entity\Liste')->findBy(array('id_util' => $this->identity()->id_util));
+            return new ViewModel(array('listes' => $listeEnvies));
+        }else{
+            $this->redirect()->toRoute('compte');
+        }
     }
  
     public function ficheAction()

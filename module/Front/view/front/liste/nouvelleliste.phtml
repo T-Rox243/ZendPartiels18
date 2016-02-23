@@ -9,6 +9,7 @@ $form->prepare();
 		<form class="form-horizontal" action="<?php echo $this->url('liste', array('action' => 'nouvelleliste')); ?>" method="post">
 		  <fieldset>
                       <?php echo $this->formHidden($form->get('id_liste')) . PHP_EOL; ?>
+                      <?php echo $this->formHidden($form->get('id_prod')) . PHP_EOL; ?>
                       <?php echo $this->formHidden($form->get('id_util')) . PHP_EOL; ?>
 		    <legend>Nouvelle liste</legend>
 		    <div class="form-group">

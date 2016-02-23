@@ -18,6 +18,12 @@ class ListeForm extends Form
             ),
         ));
         $this->add(array(
+            'name' => 'id_prod',
+            'attributes' => array(
+                'type'  => 'hidden',
+            ),
+        ));
+        $this->add(array(
             'name' => 'id_util',
             'attributes' => array(
                 'type'  => 'hidden',
