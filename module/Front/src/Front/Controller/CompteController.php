@@ -47,6 +47,16 @@ class CompteController extends AbstractActionController
         }
         return new ViewModel(array('form' => $form));
     }
+ 
+    public function deconnexionAction()
+    {
+            $authService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+            $adapter = $authService->getAdapter();
+            
+            $auth = new AuthController($authService);
+            $auth->logoutAction();
+            $this->redirect()->toRoute('front');
+    }
     
     public function inscriptionAction()
     {

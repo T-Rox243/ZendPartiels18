@@ -41,9 +41,13 @@
             <li><a href="<?php echo $this->url('front',array('action' => 'contact')); ?>">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Liste d'envies</a></li>
+            <?php if(!$user = $this->identity()){ ?>
             <li><a href="<?php echo $this->url('compte',array('action' => 'connexion')); ?>">Connexion</a></li>
             <li><a href="<?php echo $this->url('compte',array('action' => 'inscription')); ?>">Inscription</a></li>
+            <?php }else{ ?>
+            <li><a href="#">Liste d'envies</a></li>
+            <li><a href="<?php echo $this->url('compte',array('action' => 'deconnexion')); ?>">Déconnexion</a></li>
+            <?php } ?>
           </ul>
         </div>
 

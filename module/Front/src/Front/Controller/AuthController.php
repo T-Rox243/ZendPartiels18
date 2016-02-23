@@ -31,4 +31,21 @@ class AuthController extends AbstractActionController
         }
         return $auth;
     }
+    public function isAuthAction(){
+        $isAuth = false;
+        $sl = $this->getServiceLocator();
+        $authService = $sl->get('doctrine.authenticationservice.orm_default');
+        $user = $authService->getStorage()->read();  //is the user logged in?
+
+        if ($user) {  //auth successful
+            $isAuth = true;
+        }
+        return $isAuth;
+    }
+    
+    public function logoutAction()
+    {
+        $authService = $this->authService;
+        $authService->clearIdentity();
+    }
 }
