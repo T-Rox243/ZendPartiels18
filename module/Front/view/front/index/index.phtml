@@ -3,7 +3,7 @@
         <div class="jumbotron">
           <h1>Bienvenue sur notre nouvau site internet</h1>
           <p>Pour fêter la sortie de notre tout nouveau site internet, bénficiez de -50% sur les romans</p>
-          <p><a class="btn btn-primary btn-lg" href="<?php echo $this->url('categorie',array('action' => 'liste')); ?>">En savoir plus</a></p>
+          <p><a class="btn btn-primary btn-lg" href="<?php echo $this->url('produit',array('action' => 'listeProduits')); ?>">En savoir plus</a></p>
         </div>
     </div>
 
@@ -13,10 +13,10 @@
 	  	<div class="row">
 		  <div class="col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      <img src="..." alt="...">
+		      <img src="http://ecx.images-amazon.com/images/I/419PeRHC59L._SX309_BO1,204,203,200_.jpg" alt="Apprenti assassin" width="150" height="auto">
 		      <div class="caption">
-		        <h5>Thumbnail label</h5>
-		        <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+		        <h5>L'apprenti assassin</h5>
+		        <p><a href="#" class="btn btn-primary" role="button">En savoir plus</a></p>
 		      </div>
 		    </div>
 		  </div>
@@ -26,7 +26,7 @@
 		      <img src="..." alt="...">
 		      <div class="caption">
 		        <h5>Thumbnail label</h5>
-		        <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+		        <p><a href="#" class="btn btn-primary" role="button">En savoir plus</a></p>
 		      </div>
 		    </div>
 		  </div>
@@ -36,7 +36,7 @@
 		      <img src="..." alt="...">
 		      <div class="caption">
 		        <h5>Thumbnail label</h5>
-		        <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+		        <p><a href="#" class="btn btn-primary" role="button">En savoir plus</a></p>
 		      </div>
 		    </div>
 		  </div>
@@ -50,30 +50,30 @@
 	    <div class="row">
 		  <div class="col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      <img src="..." alt="...">
+		      <img src="<?php echo $produits[0]->url_img; ?>" alt="<?php echo $produits[0]->nom; ?>" height="240">
 		      <div class="caption">
-		        <h5>Thumbnail label</h5>
-		        <p><a href="#" class="btn btn-primary" role="button">En savoir plus</a></p>
+		        <h5><?php echo $produits[0]->nom; ?></h5>
+		        <p><a href="<?php echo $this->url('produit', array('action' => 'fiche', 'id' => $produits[0]->id_prod)); ?>" class="btn btn-primary" role="button">En savoir plus</a></p>
 		      </div>
 		    </div>
 		  </div>
 
-		  <!--<div class="col-sm-6 col-md-4">
+		  <div class="col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      <img src="<?php echo $produit[0]->url_img; ?>" alt="<?php echo $produit[0]->nom; ?>" width="150" height="auto">
+		      <img src="<?php echo $produits[0]->url_img; ?>" alt="<?php echo $produits[0]->nom; ?>" height="240">
 		      <div class="caption">
-		        <h5>Kafka sur le rivage</h5>
-		        <p><a href="<?php echo $this->url('produit', array('action' => 'fiche', 'id' => $produit[0]->id_prod)); ?>" class="btn btn-primary" role="button">En savoir plus</a></p>
+		        <h5><?php echo $produits[0]->nom; ?></h5>
+		        <p><a href="<?php echo $this->url('produit', array('action' => 'fiche', 'id' => $produits[0]->id_prod)); ?>" class="btn btn-primary" role="button">En savoir plus</a></p>
 		      </div>
 		    </div>
-		  </div>-->
+		  </div>
 
 		  <div class="col-sm-6 col-md-4">
 		    <div class="thumbnail">
-		      <img src="..." alt="...">
+		      <img src="<?php echo $produits[0]->url_img; ?>" alt="<?php echo $produits[0]->nom; ?>" height="240">
 		      <div class="caption">
-		        <h5>Thumbnail label</h5>
-		        <p><a href="#" class="btn btn-primary" role="button">En savoir plus</a></p>
+		        <h5><?php echo $produits[0]->nom; ?></h5>
+		        <p><a href="<?php echo $this->url('produit', array('action' => 'fiche', 'id' => $produits[0]->id_prod)); ?>" class="btn btn-primary" role="button">En savoir plus</a></p>
 		      </div>
 		    </div>
 		  </div>
