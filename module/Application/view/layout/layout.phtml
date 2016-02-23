@@ -37,8 +37,6 @@
           <ul class="nav navbar-nav">
             <li><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Accueil') ?></a></li>
             <li><a href="<?php echo $this->url('produit',array('action' => 'listeProduits')); ?>"><?php echo $this->translate('Tous nos livres') ?></a></li>
-
-            <li><a href="<?php echo $this->url('front',array('action' => 'contact')); ?>">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <?php if(!$user = $this->identity()){ ?>
