@@ -5,7 +5,7 @@
       <img src="<?php echo $produit[0]->url_img; ?>" alt="<?php echo $produit[0]->nom; ?>" width="150" height="auto">
       <div class="caption">
         <h3><?php echo $produit[0]->nom; ?></h3>
-        <p><?php echo substr($produit[0]->description, 0, 200) ?></p><br>
+        <p><?php echo substr($produit[0]->description, 0, 150) ?></p><br>
         <p><a href="<?php echo $this->url('produit', array('action' => 'fiche', 'id' => $produit[0]->id_prod)); ?>" class="btn btn-primary" role="button">En savoir plus</a></p>
         <p><a href="#" class="btn btn-default" role="button">Ajouter à ma lise d'envies</a></p>
       </div>
@@ -13,23 +13,3 @@
   </div>
     <?php } ?>
 </div>
-
-<nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>

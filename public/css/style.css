@@ -5,5 +5,9 @@
 }
 
 .thumbnail-list{
-	min-height: 567px;
+	min-height: 635px;
+}
+
+.thumbnail-list h3{
+	font-size:30px;
 }
